@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- vbind -->
+  <div id="app-1">
+    <span v-bind:title="message">停住來顯示</span>
+  </div>
+
+  <!-- vif -->
+  <!-- v-show 是添加display: none -->
+  <div id="app-2">
+    <p v-if="seen">看的到</p>
+  </div>
+
+  <!-- vfor -->
+  <div id="app-3">
+    <ol>
+      <li v-for="todo in todos">{{todo.course}}</li>
+    </ol>
+  </div>
+
+  <!-- von -->
+  <!-- v-on 可用@代替 -->
+  <div id="app-4">
+    <span>{{message}}</span>
+    <input type="button" @click ="reverseText" value="按我反轉">
+  </div>
+
+  <!-- 雙向綁定 -->
+  <div id="app-5">
+    <p>{{message}}</p>
+    <input type="text" v-model="message">
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    // v-bind 
+    let app1 = new Vue ({
+      el: '#app-1',
+      data: {
+        message:" 頁面加載於 "+ new Date().toLocaleString()
+      }
+    })
+
+    // v-if
+    let app2 = new Vue ({
+      el: '#app-2',
+      data: {
+     // seen: false
+        seen: true 
+      }
+    })
+
+    // v-for
+    let app3 = new Vue ({
+      el: '#app-3',
+      data: {
+        todos: [
+          {course: '洗衣'},
+          {course: '打掃'},
+          {course: '拖地'}
+        ]
+      }
+    })
+
+    // v-on
+    let app4 = new Vue ({
+      el: '#app-4',
+      data: {
+        message: 'Hello there !'
+      },
+      methods: {
+        reverseText: function() {
+          this.message = this.message.split('').reverse().join('')
+        }
+      }
+    })
+
+    // 雙向綁定
+    let app5 = new Vue ({
+      el: '#app-5',
+      data: {
+        message: 'Hello'
+      }
+    })
+  </script>
+</body>
+</html>

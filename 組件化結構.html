@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <ol>
+      <!-- 為每個 todo-item 提供對象 
+      todo 對象是變量，即其內容是動態的 
+      需要為每個組件提供一個key -->
+      <todo-item></todo-item>
+    </ol>
+  </div>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    // 定義為 todo-item的新組件
+    Vue.component('todo-item', {
+      // todo-item 組件現在接受一個 'prop',
+      // 類似於一個自定義 attribute
+      // 這個 prop 名為todo
+      props: ['todo'],
+      template: '<li>{{ todo.text }}</li>'
+    })
+  
+  </script>
+</body>
+</html>
