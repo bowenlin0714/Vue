@@ -6,7 +6,8 @@
   <title>Document</title>
 </head>
 <body>
-  <!-- 偵測用戶的按鈕 -->
+  <!-- 偵測用戶的動作 -->
+  <!-- 用$綁定事件 -->
   <div id="app">
     <input type="text" id="text"   @keyup="txtKeyup($event)" >
     <button id="mouse"  @click="btnClick($event)">輸入</button>
@@ -26,10 +27,15 @@
         debugLog: function(event){
           console.log(
             // srcelement 獲得事件的元素
+            
+            // tagName: 該元素種類
+            // key 該元素事件觸發物件的值
+            // innerHTML 該元素的值
+            // key是否有值? 沒有就是空白
             event.srcElement.tagName,
             event.srcElement.id,
             event.srcElement.innerHTML,
-            event.key?event.key:''
+            event.key?event.key:""
           );
         }
       }
