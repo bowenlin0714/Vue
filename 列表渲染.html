@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- v-fr 迴圈 -->
+  <div id="app">
+    <ul>
+      <li v-for="(game, index) in games">遊戲:{{index+1}}:{{game.title}}, 價格:{{game.price}}</li>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue ({
+      el:'#app',
+      data: {
+        games:[
+          { title: '魔獸世界', price:1000},
+          { title: '神魔之塔', price:500},
+          { title: 'FGO', price:800}
+        ]
+      }
+    }) 
+  </script>
+</body>
+</html>

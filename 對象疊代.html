@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <!-- v-for( 值 , 標題 , 索引值 ) -->
+      <li v-for="(value, key, index) in  games">{{index+1}}:{{key}}:{{value}}</li>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue ({
+      el:'#app',
+      data: {
+        games:{
+          name: '魔物獵人',
+          price: 1999,
+          company: 'capcom',
+          release: 2017
+        }
+      }
+    })
+  </script>
+</body>
+</html>

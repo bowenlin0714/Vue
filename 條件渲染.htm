@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="app">
+    <h1 v-if="afterResult==0">成績未公布</h1>
+    <h1 v-else-if="afterResult < 60">{{afterResult}}分 考試不及格</h1>
+    <h1 v-else-if="afterResult > 59 && afterResult < 80">{{afterResult}}分 還需努力</h1>
+    <h1 v-else>{{afterResult}}分 太厲害了</h1>
+    <input type="text" v-model="result"> 輸入成績
+    <button @click="btnClick">按我查詢結果</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue ({
+      el: '#app',
+      data: {
+        result: 0,
+        afterResult:0
+      },
+      methods: {
+        btnClick: function(){
+          if(this.result!=='' && this.result <= 100){
+            this.afterResult = this.result
+          }else{
+            this.result = 0
+            alert('請輸入正確數字')
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

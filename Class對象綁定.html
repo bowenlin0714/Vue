@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .red{
+      color: red;
+    }
+    .big{
+      font-size: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div :class="myClass">你好我好大家好</div>
+    <button @click="btnClick">按我改變樣式</button>
+  </div>
+  <!-- class綁定 -->
+  <!-- data裡面的子屬性 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue ({
+      el: '#app',
+      data: {
+        myClass:{
+          red: true,
+          big: true
+        }
+      },
+      methods: {
+        btnClick: function(){
+          // 切換屬性 不等於當前屬性
+          this.myClass.big = !this.myClass.big
+        }
+      }
+    })
+  </script>
+</body>
+</html>

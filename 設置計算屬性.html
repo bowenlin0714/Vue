@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    今年發售的ps5價格是{{price}},含稅價格為: {{priceIntax}}元, 折合台幣約: {{TWdollar}}元
+    <button @click="btnClick(10000)">含稅10000</button>
+  </div>
+  
+  <!-- setter -->
+  <!-- 設置計算函數 -->
+  <!-- 設置計算後的值，回推到原始的值 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue ({
+     el: '#app',
+     data: {
+       price: 60000
+     },
+     computed: {
+      priceIntax: {
+        // get 得到屬性之後
+        // set 去修改原始值
+        
+       get: function(){
+         return this.price * 1.08
+       },
+       set: function(value){
+         this.price = value / 1.08
+       } 
+      },
+      TWdollar: function (){
+        return Math.round(this.priceIntax * 3.24)
+      },
+     },
+     methods: {
+       btnClick: function(newPrice){
+         this.priceIntax = newPrice
+       }
+     }
+    })
+  </script>
+</body>
+</html>

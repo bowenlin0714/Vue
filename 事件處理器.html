@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 偵測用戶的按鈕 -->
+  <div id="app">
+    <input type="text" id="text"   @keyup="txtKeyup($event)" >
+    <button id="mouse"  @click="btnClick($event)">輸入</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue ({
+      el:'#app',
+      data: {},
+      methods: {
+        txtKeyup: function(event){
+          this.debugLog(event)
+        },
+        btnClick: function(event){
+          this.debugLog(event)
+        },
+        debugLog: function(event){
+          console.log(
+            // srcelement 獲得事件的元素
+            event.srcElement.tagName,
+            event.srcElement.id,
+            event.srcElement.innerHTML,
+            event.key?event.key:''
+          );
+        }
+      }
+    })
+  </script>
+</body>
+</html>

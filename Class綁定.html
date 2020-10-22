@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active{
+      color: red;
+      font-size: 50px;
+    }
+  </style>
+</head>
+<body>
+  <!-- v-bind 綁定class -->
+  <div id="app">
+    <div v-bind:class="{active:isActive}">紅色文本</div>
+    <!-- v-bind可用 : 縮寫 -->
+    <div :class="{active:isActive}">紅色文本</div>
+    <button @click="btnClick"> 改變顏色 </button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+ let app = new Vue ({
+    el: '#app',
+    data: {
+      isActive: true
+    },
+    methods: {
+      btnClick: function(){
+        // 跟當前的class屬性相反
+        this.isActive = !this.isActive
+      }
+    }
+   
+
+ })
+  </script>
+</body>
+</html>

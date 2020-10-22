@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>今年發售的ps5價格是{{price}},含稅價格為: {{priceIntax}}元, 折合台幣約: {{TWdollar}}元</p>
+    <button @click ="btnClick(10000)">加10000</button>
+  </div>
+  <!-- 觀察屬性 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue ({
+      el: '#app',
+      data: {
+        price: 0,
+        priceIntax: 0,
+        TWdollar: 0
+      },
+      // 盯著變量的函數，發生變化時調用函數
+      watch: {
+        price: function(newVal ,oldVal){
+          console.log(newVal ,oldVal);
+          this.priceIntax = Math.round(this.price * 1.03),
+          this.TWdollar = Math.round(this.price *0.3)
+        }
+      },
+      methods: {
+        btnClick: function(newPrice){
+          this.price += newPrice
+        }
+      }
+    })
+    // 先把初始值設為0，再另外設定初始值
+    app.price = 60000
+  </script>
+</body>
+</html>

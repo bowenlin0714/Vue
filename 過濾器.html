@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{message}}</p>
+    <p>{{message | toUpper  }}</p>
+    <hr>
+    <p>進度{{num | toPercent}}</p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    // 過濾器
+    let app = new Vue({
+      el: '#app',
+      data: {
+        message: "Hello world",
+        num: 0.3
+      },
+      filters: {
+        toUpper: function(item){
+          return item.toUpperCase()
+        },
+        toPercent: function(item){
+          return item * 100+ '%' 
+        },
+      },
+    })
+
+  </script>
+</body>
+</html>
