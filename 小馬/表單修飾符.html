@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="app">
+    <input type="text" v-model.lazy='username'>輸入姓名
+    <br>
+    <input type="text" v-model.lazy='userage'>輸入年齡
+    <br>
+    <button>確定</button>
+    <h1>信息區</h1>
+    <p>姓名:{{username}}</p>
+    <p>年齡:{{userage}}</p>
+  </div>
+  <!-- 表單修飾符 -->
+  <!-- 針對用戶的內容進行規範和整理 -->
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+
+    // .lazy 用戶輸入內容時不綁定數據處理，在控件的ochange事件中更新綁定的變量
+
+    // .number 將用戶輸入的內容轉為數值類型，如輸入非述職的時候，返回NaN
+
+    // .trim 去掉空格
+    let app = new Vue({
+      el:'#app',
+      data: {
+        username:'',
+        userage: ''
+      },
+      methods: {
+        
+      }
+    })
+
+
+  </script>
+</body>
+</html>

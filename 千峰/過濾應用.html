@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <input type="text" @input = 'handleInput()' v-model = "mytext"/>
+    <ul>
+      <li v-for='data in datalist' >
+        {{data}}
+      </li>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue ({
+      el:'#app',
+      data: {
+        mytext: '',
+        datalist: ['aaa','bbb','ccc','dddd','eeee','fffff','fsdfa'],
+        spacelist:['aaa','bbb','ccc','dddd','eeee','fffff','fsdfa']
+      },
+      methods:{
+        handleInput(){
+          // console.log('只要value改變, 就會觸發');
+          // console.log(this.mytext)
+          // 利用輸入框的字符， 過濾出包含字段的元素
+          // indexOf 如等於0或大於0 即符合條件
+          // 創造一個一模一樣的數列，用這個數列去做處理，這樣就不會動到原本的數列
+          let newlist = this.spacelist.filter(item => item.indexOf(this.mytext)>-1)
+          console.log(newlist)
+
+          // 已經改變原數據  下次過濾只能再過濾此數列
+          this.datalist = newlist
+
+
+        }
+      },
+      
+    })
+    // filter() item = 你要過濾的值
+    let arr = [1,2,3,4,5]
+    let newarr = arr.filter(item=>{
+            return item >3 
+          })
+    console.log(newarr)      
+  
+  
+  </script>
+</body>
+</html>

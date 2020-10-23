@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    select {
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 下拉式選單綁定 -->
+  <div id="app">
+    <h1>你最喜歡的藝人是:</h1>
+    <select v-model='singers'>
+      <option>凳子其</option>
+      <option>林俊傑</option>
+      <option>周杰倫</option>
+      <option>高爾軒</option>
+      <option>張亮穎</option>
+      <option>蕭敬騰</option>
+      <option>阿姆</option>
+    </select>
+    <h1>你最喜歡的歌曲是</h1>
+    <select v-model='songs'>
+      <option>泡沫</option>
+      <option>till it collapse</option>
+      <option>without you</option>
+      <option>王妃</option>
+      <option>曹操</option>
+      <option>晴天</option>
+      <option>雨蝶</option>
+    </select>
+    <h1>選擇結果</h1>
+    <p>我最喜歡的歌手:{{singers}}</p>
+    <p>我最愛的歌曲:{{songs}}</p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue ({
+      el:'#app',
+      data:{
+        singers: null,
+        songs:null
+      }
+    })
+  </script>
+</body>
+</html>
