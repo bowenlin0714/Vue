@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- radio單選按鈕 -->
+  <div id="app">
+    <p>表單單選按鈕</p>
+    <br>
+    <p>選擇性別</p>
+       <input type="radio" id="man" value="男" v-model="sexselect">
+       <label for="male">男</label>
+       <input type="radio" id="girl" value="女"v-model="sexselect">
+       <label for="girl">女</label>
+    <p>選擇職業</p>
+       <input type="radio" value="醫生" id="doctor"
+       v-model="jobselect">
+       <label for="doctor">醫生</label>
+       <input type="radio" value="老師" id="teacher"
+       v-model="jobselect">
+       <label for="teacher">老師</label>
+       <br>
+    <p>性別:{{sexselect}},職業:{{jobselect}}</p>   
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el:'#app',
+      data:{
+        sexselect:'',
+        jobselect:''
+      }
+    })
+  </script>
+</body>
+</html>

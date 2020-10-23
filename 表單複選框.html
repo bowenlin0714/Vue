@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <input type="checkbox" value="鋼鐵人" v-model="heros" >
+    <label for="鋼鐵人">鋼鐵人</label>
+    <input type="checkbox" value="蜘蛛人" v-model="heros" >
+    <label for="蜘蛛人">蜘蛛人</label>
+    <input type="checkbox" value="蝙蝠俠" v-model="heros" >
+    <label for="蝙蝠俠">蝙蝠俠</label>
+    <br>
+    <p>我喜歡的英雄是:{{heros}}</p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue ({
+      el: '#app',
+      data: {
+        heros:[]
+      },
+      methods:{
+       
+          
+      }
+    })
+  </script>
+</body>
+</html>

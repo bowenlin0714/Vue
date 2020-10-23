@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 同步改變 -->
+  <div id="app">
+    <p>表單綁定</p>
+    <input type="text" v-model="message">
+    <br>
+    {{message}}
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue ({
+      el: '#app',
+      data: {
+        message: '輸入'
+      }
+    })
+  </script>
+</body>
+</html>
