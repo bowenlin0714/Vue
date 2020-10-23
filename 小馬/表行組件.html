@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 表行組件 -->
+  <div id="app">
+    <h1>我最期待的遊戲</h1>
+    <table border="1">
+      <tr>
+        <td>編號</td>
+        <td>遊戲名稱</td>
+        <td>遊戲價格</td>
+      </tr>
+
+      <!-- 錯誤，並沒有在表格內渲染 -->
+      <!-- <row1></row1>
+      <row2></row2>
+      <row3></row3> -->
+
+      <!-- 有些組件的樣式是固定的，只能用html固定格式 需要用is=" " -->
+      <tr is='row1'></tr>
+      <tr is='row2'></tr>
+      <tr is='row3'></tr>
+    </table>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    Vue.component('row1',{
+        template:'<tr><td>(1)</td><td>魔物獵人</td><td>1799</td></tr>'
+    });
+    Vue.component('row2',{
+        template:'<tr><td>(2)</td><td>超級瑪莉</td><td>1200</td></tr>'
+    });
+    Vue.component('row3',{
+        template:'<tr><td>(3)</td><td>使命召喚</td><td>150</td></tr>'
+    });
+    let app = new Vue ({
+      el:'#app',
+      data: {
+
+      }
+    })
+
+  </script>
+</body>
+</html>

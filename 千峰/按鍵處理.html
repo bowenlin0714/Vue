@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- .enter 判斷條件執行事件-->
+    <!-- 重要 也可用key的鍵值觸發事件 -->
+    <!-- <input type="text" @keyup.enter="keyHandler($event)"> -->
+    <input type="text" @keyup.13="keyHandler($event)">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue ({
+      el: '#app',
+      methods: {
+        keyHandler(ev){
+            console.log(ev);
+            // if(ev.keyCode == 13){
+              console.log('執行按鍵動作');
+            // }
+        },
+      }
+    })
+  </script>
+</body>
+</html>

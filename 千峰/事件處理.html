@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 可加()可不加() -->
+    <button @click="handleClick">Click</button>
+    <button @click="handleClick($event)">Click</button>
+    <button @click="handleClick">Click</button>
+    <div v-show='isShow'>464646464</div>
+
+    
+    <!-- .stop 可以阻止冒泡事件 -->
+    <ul @click="handleulClick()">
+      <li @click.stop="handleliClick($event)">1111111111</li>
+      <li>1122222222</li>
+      <li>33333333333333</li>
+    </ul>
+
+    <!-- .prevent 阻止默認行為-->
+    <a href="https://www.google.com/?hl=zh_tw" @click.prevent="Changewebsite">Google</a>
+
+    <!-- .self 只有在自己被點擊時才觸發 -->
+    <!-- .once 只會觸發一次 -->
+    <ul @click.self="handleulClick()">
+      <li @click.stop="handleliClick($event)">1111111111</li>
+      <li>1122222222</li>
+      <li @click.once="handleliClick($event)">33333333333333</li>
+    </ul>
+  </div>
+
+  
+
+    
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue ({
+      el: '#app',
+      data:{
+        isShow: false
+      },
+      methods: {
+        handleClick(){
+          this.isShow = !this.isShow
+        },
+        handleliClick(e){
+          // 冒泡現象，點擊子元素父元素也會被觸發 
+          // stopPropagation() 停止冒泡事件
+          // e.stopPropagation()
+          console.log('li cklick',e);
+        },
+        handleulClick(){
+          console.log('ul click');
+        }, 
+        Changewebsite(ev){
+          // ev.preventDefault
+          console.log('Changewebsite');
+        }
+      }
+    })
+  </script>
+</body>
+</html>

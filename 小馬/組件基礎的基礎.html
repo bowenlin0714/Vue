@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 用組件完成一個頁面的小功能 -->
+  <div id="app">
+    <weather></weather>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+   Vue.component('weather', {
+    template: '<div>今天天氣真好</div>'
+   })
+
+   let app = new Vue ({
+     el:'#app',
+   })
+  </script>
+</body>
+</html>
