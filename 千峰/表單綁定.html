@@ -7,14 +7,40 @@
 </head>
 <body>
   <div id="app">
-    <input type="text" v-model="mytext">{{mytext}}
+    <input type="text" v-model="mytext">
+    {{mytext}}
+    <br>
+    <textarea  cols="30" rows="10" v-model='mytext'></textarea>
+    <input type="checkbox" v-model='checked'>紀錄用戶名
+    <br>
+    <!-- 如要多選，在data處設置數列 -->
+    <p>你喜歡的食物有哪些</p>
+      <input type="checkbox" v-model='groupCheck' value="漢堡">漢堡
+      <input type="checkbox" v-model='groupCheck' value="薯條">薯條
+      <input type="checkbox" v-model='groupCheck' value="饅頭">饅頭
+      <input type="checkbox" v-model='groupCheck' value="吐司">吐司
+      <input type="checkbox" v-model='groupCheck' value="可樂">可樂
+      {{groupCheck}}
+      <br>
+      <!-- 如要單選，在data處設置空值 -->
+    <p>你最喜歡的歌曲</p>
+      <input type="radio" v-model='picked' value="曹操">曹操
+      <input type="radio" v-model='picked' value="晴天">晴天
+      <input type="radio" v-model='picked' value="夜曲">夜曲
+      <input type="radio" v-model='picked' value="雨蝶">雨蝶
+      <input type="radio" v-model='picked' value="王妃">王妃
+      <br>
+      {{picked}}
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
     let app = new Vue ({
       el:'#app',
       data: {
-        mytext: 'eeee'
+        mytext: '',
+        checked: false,
+        groupCheck: [],
+        picked:""
       }
     })
   </script>

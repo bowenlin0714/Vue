@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 勾選全部選項 -->
+    <input type="checkbox" @change='handlechange' v-model='isAllcheck'>
+    <ul>
+      <li v-for="item in itemList">
+        <input type="checkbox" v-model='checkgroup':value='item' @change='handleLichange'>
+        {{item}}
+        <button @click='delhandle(item)'>-</button>{{item.num}}<button @click='addhandle(item)'>+</button>
+      </li>
+      
+    </ul>
+    {{checkgroup}}
+    <p>總金額:{{ getsum() }}</p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+ 
+  <script>
+    let app =new Vue({
+      el:'#app',
+      data:{
+        
+        isAllcheck: false,
+        checkgroup:[],
+        itemList:
+          [
+            {
+                name:"滑鼠",
+                price: 300,
+                id: 1,
+                num: 1
+            },
+            {
+                name:"鍵盤",
+                price: 700,
+                id: 2,
+                num: 2
+            },
+            {
+                name:"螢幕",
+                price: 3000,
+                id: 3,
+                num: 3
+            },
+            {
+                name:"USB",
+                price: 200,
+                id: 4,
+                num: 4
+            }
+          ]      
+      },
+      methods:{
+        // 設一初始數值為0 
+        getsum(){
+          let sum = 0
+          for(let i in this.checkgroup ){
+            sum+= this.checkgroup[i].num * this.checkgroup[i].price
+            console.log(i);
+          }
+          
+          return sum
+        },
+        // 如果isAllcheck = true 變為全選
+        // 如果為假 = false 變為空陣列
+        handlechange(){
+         if(this.isAllcheck){
+           this.checkgroup = this.itemList
+         }else{
+           this.checkgroup = []
+         }
+        },
+        // 如果已勾選的陣列長度等於原陣列長度
+        // isAllcheck為真　反之為否
+        handleLichange(){         
+          if(this.checkgroup.length === this.itemList.length){
+            this.isAllcheck = true
+          }else{
+            this.isAllcheck = false
+          }
+        },
+        // 設一number 如果item.num減到0 跟著為0
+        // 重要!! 在function裡面 設一變量=多少 數字是會直接變化的
+        delhandle(item){
+         let number = item.num--
+        //  if(number===0){
+        //   item.num= 0
+        //  }
+        },
+        addhandle(item){
+          item.num++
+          console.log(item.num);
+        },
+      }
+    })
+    
+  </script>
+</body>
+</html>
