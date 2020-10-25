@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <input type="text"  v-model = "mytext"/>
+    <ul>
+      <!-- computed 可以當作數據跑迴圈 不會動到原本的數據-->
+      <li v-for='data in getMydatalist' >
+        {{data}}
+      </li>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue ({
+      el:'#app',
+      data: {
+        mytext: '',
+        datalist: ['aaa','bbb','ccc','dddd','eeee','fffff','fsdfa'],
+      },
+      computed: {
+        getMydatalist(){
+            return this.datalist.filter(item => item.indexOf(this.mytext)>-1)
+        }
+      }
+    })
+    // filter() item = 你要過濾的值
+    let arr = [1,2,3,4,5]
+    let newarr = arr.filter(item=>{
+            return item >3 
+          })
+    console.log(newarr)      
+  
+  
+  </script>
+</body>
+</html>

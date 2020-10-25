@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click='clickHandler'>按我</button>
+        <ul>
+            <li v-for='data of titles'>
+                <p>{{titles}}</p>
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        let app= new Vue ({
+            el:'#app',
+            dada:{
+                titles:['www','eee']
+            },
+            methods:{
+                clickHandler(){
+                    fetch('https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=6').then(res=> {return res.json()}).then(res=>{
+                        console.log(res[0].title);
+                        titles = res[0].title
+                })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

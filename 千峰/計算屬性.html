@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- substring( 從哪個位置開始擷取,到哪個位置之前為止 預設為字串結尾 )切割屬性 -->
+    <!-- computed 改變狀態屬性，計算屬性之後重新輸出 -->
+    <!-- computed 跟 methods 之間的差別 methods 所需的效能較高， computed 使用緩存所以所需效能較低-->
+    <div id="app">
+        {{getMyname}}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el:'#app',
+            data:{
+                myname:'linpoan'
+            },
+            computed:{
+                getMyname(){
+                    return this.myname.substring(0,1).toUpperCase() + this.myname.substring(1)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
