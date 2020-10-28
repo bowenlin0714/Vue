@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <navbar></navbar>
+    <sidebar></sidebar>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    // 1.全局定義組件(作用域隔離)
+    Vue.component("navbar",{
+      // 組件外部必須要有東西包裹
+      template:
+               `<section>
+                 <div>
+                  <button @click='handleBack()'>返回</button>
+                  navbar
+                  <button>主頁</button>
+                  <child></child>
+                  <navibarchild></navibarchild>
+                 </div>
+                 <div>12345</div>
+                </section>
+                `
+                ,
+      methods:{
+        handleBack(){ 
+          alert('返回')
+        }
+      },
+      //局部定義組件
+      components:{
+        navibarchild:{
+          template:`<div>navibarchild</div>`
+        } 
+       }    
+    })
+
+    Vue.component('child',{
+      template:`<div>全局組件</div>`
+    })
+
+    Vue.component('sidebar',{
+      template:`<div>
+                  sider組件
+                  <child></child>
+                </div>`
+    })
+
+    let app = new Vue({
+      el:'#app'
+      // root component
+      // 功能不可寫在這，讀取不到
+    })
+  </script>
+</body>
+</html>

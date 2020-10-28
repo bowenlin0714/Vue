@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <navbar myname='home' :myshow='false'></navbar>
+    <navbar myname='list' :myshow='true'></navbar>
+    <navbar v-bind:myname='parentname' :myshow='true'></navbar>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    Vue.component('navbar',{
+      template:`<div>
+                  <button>返回</button>
+                  navbar---{{myname}}
+                  <button>首頁</button>
+                </div>`,
+      // 接受父組件傳來的屬性
+      props:["myname","myshow"]          
+    })
+
+    let app = new Vue({
+      el:'#app',
+      data:{
+        parentname:'父組件的狀態'
+      }
+    })
+
+  </script>
+</body>
+</html>
