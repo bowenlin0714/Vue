@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .cardstyle{
+      border: 1px solid black;
+      width: 200px;
+      height: 300px;
+    }
+    #app{
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <h1>財哥檳榔攤</h1>
+  <p>你按了 個讚</p>
+  <div id="app">
+   
+    <cards v-for='item in tsai' :todo ="item">
+     
+    </cards>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    Vue.component('cards',{
+      props:['todo','yo'],
+      template:`<div class='cardstyle'>{{todo.text}}<br> <button>讚</button></div>`
+    })
+    let app = new Vue({
+      el:'#app',
+      data:{
+        tsai:[
+          {name:"財哥1",text :"發大財"},
+          {name:"財哥2",text :"發小財"},
+          {name:"財哥1",text :"發大財"},
+          {name:"財哥2",text :"發小財"},
+          {name:"財哥1",text :"發大財"},
+        ],
+        images:[
+          {yo:'yoyo'},
+          {yo:'yoyo'},
+          {yo:'yoyo'},
+          {yo:'yoyo'},
+          {yo:'yoyo'},
+        ]
+      }
+    })
+  </script>
+</body>
+</html>
