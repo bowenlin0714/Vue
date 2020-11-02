@@ -12,7 +12,7 @@
 </head>
 <body>
   <div id="app">
-    <input type="text" v-model='texts.content' placeholder="輸入" :style="{borderColor:inputborder}" ><button @click='addlist'>新增</button>
+    <input type="text" v-model='texts.content' placeholder="輸入" :style="{borderColor:inputborder}" @keyup.enter='addlist'><button @click='addlist' >新增</button>
     <ul>
       <li v-for='(item,index) in lists'>
        <span :class="{'finish':item.finished}"> {{index+1}} {{item.content}}</span>
