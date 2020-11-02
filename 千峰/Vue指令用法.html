@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 因為在這邊當作JS變量用 所以必須把裡面轉成字串 -->
+    <div v-hello="'yellow'">sssss</div>
+    <div v-hello="'blue'">sssss</div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+
+    Vue.directive('hello',{
+      inserted(el,bind){
+        // 指令 生命週期 創建
+        // console.log('當前節點插入到父節點中了');
+        // el是當前的元素 ，bind是綁定的值
+        console.log(bind.value);
+        el.style.background= bind.value
+      },
+      update(el,bind){
+        // 指令 生命週期 更新
+        el.style.background= bind.value
+      }
+    })
+
+    let app= new Vue({
+      el:'#app',
+      data(){
+        return{
+
+        }
+      }
+    })
+  </script>
+</body>
+</html>
