@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 要在父組件裡面往子組件插入 DOM 必須在子組件裡面加入<slot></slot> -->
+  <div id="app">
+    <texts>
+      <li>666</li>
+      <li>555</li>
+      <li>444</li>
+      <li>4444</li>
+    </texts>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el:'#app',
+      components:{
+        "texts":{
+          template:`
+          <div>
+           <ul>
+            <slot></slot>
+           </ul>
+          </div>`
+        }
+      }
+    })
+  </script>
+</body>
+</html>
