@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- v-bind 綁定 -->
+    <!-- keep-alive 可以保留後來改變的資料 -->
+    <keep-alive>
+      <component :is='who'></component>
+    </keep-alive> 
+    <ul>
+      <li><a @click="who='home'">home</a></li>
+      <li><a @click="who='list'">list</a></li>
+      <li><a @click="who='shop'">shop</a></li>
+    </ul>
+    
+    
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el:'#app',
+      data(){
+        return{
+          // 可將要綁定的資料在父元件的data設定
+          who:"home"
+        }
+      },
+      components:{
+        "home":{
+          template:`<div><input type='text'/> 首頁</div>`
+        },
+        "list":{
+          template:`<div>list</div>`
+        },
+        "shop":{
+          template:`<div>購物車</div>`
+        }
+
+      }
+    })
+  </script>
+</body>
+</html>
