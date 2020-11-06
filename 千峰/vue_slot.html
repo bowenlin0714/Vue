@@ -14,6 +14,12 @@
       <li>444</li>
       <li>4444</li>
     </texts>
+  
+  <!-- 如果要在特定地方插入插槽 需在 dom 加入 slot='名字' 組件 slot name='名子' -->
+    <name>
+      <div slot='a'>first</div>
+      <div slot='b'>last</div>
+    </name>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
@@ -25,6 +31,16 @@
           <div>
            <ul>
             <slot></slot>
+           </ul>
+          </div>`
+        },
+        "name":{
+          template:`
+          <div>
+           <ul>
+            <slot name ='a'></slot>
+             child
+            <slot name ='b'></slot>
            </ul>
           </div>`
         }
